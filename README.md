@@ -24,10 +24,10 @@ This repository implements a comprehensive solution for spell checking and gramm
 Here are some sample outputs of the spell checker and grammar checker in action:
 
 ### Spell Checker Demo:
-![Spell Checker Output]([path_to_spell_checker_output_image](https://github.com/PramodGunarathna/Sinhala_Spell_And_Grammer_Checker/blob/main/SpellChecker_Demo.png))
+![Spell Checker Output]([path_to_spell_checker_output_image](SpellChecker_Demo.png))
 
 ### Grammar Checker Demo:
-![Grammer Checker Output]([path_to_spell_checker_output_image](https://github.com/PramodGunarathna/Sinhala_Spell_And_Grammer_Checker/blob/main/GrammerChecker_Demo.png))
+![Grammer Checker Output]([path_to_spell_checker_output_image](GrammerChecker_Demo.png))
 
 
 
