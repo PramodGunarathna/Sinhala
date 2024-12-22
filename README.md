@@ -1,33 +1,83 @@
-# Sinhala_Spell_And_Grammar_Checker
+# Sinhala Spell and Grammar Checker
 
-This repository implements a comprehensive solution for spell checking and grammar checking in the Sinhala language. Our approach integrates rule-based methods alongside machine learning models to address the unique challenges of Sinhala language processing.
+A comprehensive solution for spell checking and grammar correction in the Sinhala language, combining rule-based methods with machine learning approaches.
 
-## Features
+## 🌟 Features
 
-### Spell Checker:
-- Implemented using a rule-based method tailored for Sinhala spell correction.
+### Spell Checker
+- Custom rule-based implementation for Sinhala spell correction
+- Handles unique characteristics of Sinhala orthography
+- Fast and efficient correction suggestions
 
-### Grammar Checker:
-- **Rule-Based Method:** Incorporates handcrafted rules to identify and correct grammatical errors in Sinhala.
-- **Machine Learning Models:** Evaluated three different architectures for Sinhala grammar checking:
+### Grammar Checker
+- **Hybrid Approach:**
+  - Rule-based system with handcrafted grammar rules
+  - Machine learning models for enhanced accuracy
+
+- **Multiple Model Architectures:**
   - Regression Model
   - Unidirectional LSTM
-  - Bidirectional LSTM
+  - Bidirectional LSTM (Best performing)
 
-## Dataset:
-- Contains annotated data for training and evaluation of grammar checking models.
+## 📊 Dataset
 
-## Evaluation:
-- Comparative analysis of the three machine learning models to identify the best architecture for Sinhala grammar checking.
+The project includes a comprehensive dataset for training and evaluation:
+- Annotated Sinhala text samples
+- Tagged grammatical errors
+- Correction pairs for model training
 
-## Output Demo:
-Here are some sample outputs of the spell checker and grammar checker in action:
+## 🔍 Model Evaluation
 
-### Spell Checker Demo:
-![Spell Checker Output]([path_to_spell_checker_output_image](SpellChecker_Demo.png))
+We conducted extensive evaluation of our three machine learning architectures:
+- Comparative performance analysis
+- Metrics: Accuracy, Precision, Recall, F1-score
+- Real-world usage scenarios testing
 
-### Grammar Checker Demo:
-![Grammer Checker Output]([path_to_spell_checker_output_image](GrammerChecker_Demo.png))
+## 🚀 Getting Started
+
+### Prerequisites
+```bash
+python >= 3.8
+numpy
+pandas
+```
+
+### Installation
+1. Clone the repository
+```bash
+git clone https://github.com/PramodGunarathna/Sinhala_Spell_And_Grammer_Checker.git
+cd Sinhala_Spell_And_Grammer_Checker
+```
 
 
+## 📸 Examples
+
+### Spell Checker Output
+```
+Input: කෘෂිකර්මික
+Correction: කෘෂිකාර්මික
+```
+```
+Input: පොලීසය
+Correction: පොලීසිය
+```
+### Grammar Checker Output
+```
+Input: ළමයි යනවා
+Correction: ළමයි යති
+Confidence: 0.8837
+```
+
+## 📊 Performance
+
+| Model | Accuracy |
+|-------|----------|
+| Regression | 32% |
+| Bi-LSTM | 88.29% | 
+
+
+## 👥 Authors
+
+- Pramod Nadishka Gunarathna  
+- Pawani Kaveesha Somarathna 
 
