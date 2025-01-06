@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinhala Sentence Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .logo-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+        .input-container {
+            margin: 20px 0;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .results p {
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sinhala Spell And Grammer Checker</h1>
+    
+    <div class="logo-container">
+        <img src="https://static.vecteezy.com/system/resources/previews/013/062/523/non_2x/glasses-logo-design-spectacles-icon-design-template-vector.jpg" alt="Logo" class="logo">
+    </div>
+    
+    <div class="input-container">
+        <input type="text" id="inputText" class="input-field" placeholder="Enter Sinhala sentence here" />
+        <button onclick="analyzeSubject()">Analyze Subject</button>
+        <button onclick="analyzeObject()">Analyze Object</button>
+        <button onclick="analyzeTense()">Analyze Tense</button>
+        <button onclick="correctSentence()">Correct Sentence</button>
+    </div>
+    
+    <div class="results">
+        <p><strong>Subject:</strong> <span id="subjectResult"></span></p>
+        <p><strong>Object:</strong> <span id="objectResult"></span></p>
+        <p><strong>Tense:</strong> <span id="tenseResult"></span></p>
+        <p><strong>Corrected Sentence:</strong> <span id="correctedSentenceResult"></span></p>
+    </div>
+
+    <div class="footer">
+        © 2025 Sinhala Sentence Analyzer
+    </div>
+
+    <script>
+        function analyzeSubject() {
+            const inputText = document.getElementById('inputText').value;
+            fetch('/analyze_subject', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: inputText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('subjectResult').textContent = data.subject;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error analyzing subject');
+            });
+        }
+
+        function analyzeObject() {
+            const inputText = document.getElementById('inputText').value;
+            fetch('/analyze_object', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: inputText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('objectResult').textContent = data.object;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error analyzing object');
+            });
+        }
+
+        function analyzeTense() {
+            const inputText = document.getElementById('inputText').value;
+            fetch('/analyze_tense', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: inputText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('tenseResult').textContent = data.tense;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error analyzing tense');
+            });
+        }
+
+        function correctSentence() {
+            const inputText = document.getElementById('inputText').value;
+            fetch('/correct_sentence', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: inputText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('correctedSentenceResult').textContent = data.corrected_sentence;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error correcting sentence');
+            });
+        }
+    </script>
+</body>
+</html>
