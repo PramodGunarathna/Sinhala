@@ -11,6 +11,15 @@ def analyze_and_correct(input_text):
     model = genai.GenerativeModel('gemini-pro')
     prompt = (
         f"Analyze this Sinhala sentence: '{input_text}'\n"
+        "Follow these grammatical rules while analyzing and correcting:\n"
+        "- If the subject is 'මම', the verb must end with 'මි'.\n"
+        "- If the subject is 'අපි', the verb must end with 'මු'.\n"
+        "- In the present tense:\n"
+        "  - Singular verbs must end with 'යි'.\n"
+        "  - Plural verbs must end with 'ති'.\n"
+        "- In the past tense:\n"
+        "  - Singular verbs must end with 'ඒය'.\n"
+        "  - Plural verbs must end with 'ඕය'.\n"
         "Respond in the following format exactly:\n"
         "Subject: [subject]\n"
         "Object: [object]\n"
