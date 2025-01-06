@@ -95,15 +95,19 @@ Additional Context: Formal written form suggestion
 ## 🖼️ User Interface Screenshots
 
 
-### Rule-Based Interface
+### Rule-Based Spell Checker Interface
 ![Rule-Based Spell Checker](/screenshots/rule_based_Spell_ui.jpg)
+
+### Rule-Based Grammer Checker Interface
 ![Rule-Based Grammer Checker](/screenshots/rule_based_Grammer_ui.jpg)
 
-### Machine Learning Models Interface
+### Machine Learning Models Interface(LSTM Approach)
 ![LSTM Model Interface](/screenshots/ml_models_ui.jpg)
 
-### Gemini API Interface
+### Gemini API Spell Checker Interface
 ![Gemini Implementation - Spell](/screenshots/gemini_api_ui_Grammer.jpg)
+
+### Gemini API Grammer Checker Interface
 ![Gemini Implementation - Grammer](/screenshots/gemini_api_ui_Grammer2.jpg)
 
 ## 🚀 Getting Started
