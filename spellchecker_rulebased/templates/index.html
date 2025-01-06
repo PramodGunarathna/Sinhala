@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinhala Spell Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9; 
+            color: #333; 
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff; 
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc; /* Border color */
+            border-radius: 4px;
+            background-color: #fefefe; /* Light gray background for textarea */
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff; /* Blue button color */
+            color: #ffffff; /* White text color */
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue when hovered */
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #444; /* Text color for output section */
+        }
+        .output strong {
+            color: #007bff; /* Match the button color */
+        }
+        #corrected-text {
+            color: #28a745; /* Green color for corrected text */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color: #007bff;">Sinhala Spell Checker</h1>
+        <form id="spell-check-form">
+            <textarea id="input-text" placeholder="Enter Sinhala text here..."></textarea>
+            <button type="submit">Check Spelling</button>
+        </form>
+        <div class="output">
+            <strong>Corrected Text:</strong>
+            <p id="corrected-text"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('spell-check-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const inputText = document.getElementById('input-text').value;
+
+            const response = await fetch('/check', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: inputText })
+            });
+
+            const data = await response.json();
+            document.getElementById('corrected-text').innerText = data.corrected_text;
+        });
+    </script>
+</body>
+</html>
